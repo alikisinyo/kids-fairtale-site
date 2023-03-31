@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="{{ url_for('static', filename = '/css/bootstrap.min.css')}}"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    />
+    <title>{{title}}</title>
+    <style type="text/css">
+      body {
+        background-color: #f2f2f2;
+        font-family: "OCR A Std", monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+            }
+    .header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+      .header p {
+        font-size: 1.2rem;
+      }
+      .about {
+        background-color: #fff;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-bottom: 2rem;
+        padding: 1rem;
+      }
+      .about h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .about p {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+      .about img {
+        float: left;
+        margin-right: 1rem;
+        width: 50px;
+        height: 20px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+      }
+
+      .navbar-wrapper {
+        background-color: #333;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto;
+        height: 70px;
+      }
+
+      .logo {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 20px;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      nav li {
+        margin-right: 20px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #ffd700;
+      }
+
+      .slider {
+        width: 75%;
+        margin: 50px auto;
+      }
+
+      .slider img {
+        width: 90%;
+        height: 600px; /* Change this value to adjust the height of the slider */
+        object-fit: cover;
+        border-radius: 5%;
+      }
+
+      /* Smooth the animation */
+      .slick-slide {
+        transition: transform 5.5s ease;
+        will-change: transform;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+      }
+      .image {
+        margin: 10px;
+        max-width: 30%;
+        height: 300px;
+        border-radius: 10%;
+        border-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar-wrapper">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    {% block content %}{% endblock content %}
+    <script
+      src="{{ url_for('static', filename = '/js/bootstrap.bundle.min.js')}}"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="{{ url_for('static', filename = '/js/popper.min.js')}}"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="{{ url_for('static', filename = '/js/bootstrap.min.js')}}"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".slider").slick({
+          dots: true,
+          infinite: true,
+          speed: 700 /* Increase the speed of the animation */,
+          fade: true,
+          cssEase: "linear",
+          autoplay: true,
+          autoplaySpeed: 2000,
+          pauseOnHover: false /* Disable pause on hover to make the animation more fluid */,
+        });
+      });
+    </script>
+  </body>
+</html>
